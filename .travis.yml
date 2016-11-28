@@ -1,14 +1,15 @@
 language: go
 os: osx
+go:
+  - master
 install:
   - export GOPATH="${TRAVIS_BUILD_DIR}"
-  - wget https://raw.githubusercontent.com/pcarrier/gauth/master/gauth.go
-  - go build gauth.go
+  - go get github.com/pcarrier/gauth
 deploy:
   provider: releases
   api_key:
     secure: FuSWkbI18eFX2V1wcgkcAOXqEpwm+7BABs0PARlevxyUIecYbcg7gHpGx9e0fTYQgRKWfEf2F7cmXeoezRxpQBALznOVMCyCVMjysQC/oM+SDY9GLgqDKWOW9JRWeKlj+rCAXpHqIZ9wj1O3VwN6qzF67ToHh9W3+y9fWQ63mF3zu+SCFUALlXj0yThd6dbdT5njLkWE3O15hXxDHSOW80HWVF6TV7f77DlQtzrQpIeR2FjMX4C9BNu4ShiBZ/XHm/7M4spsSRGOd5NX6TG/K8hKvc2QoAfzdFAShqtWeP7YRUHD3DrEWRp3ABXBvJpoHX6MEA/3O3+H1WtmDbNLj6/douSr5JW1UQRWcd+DIho1wVkyFM005aUr2qL7fgR3j+V1/GUuGVMB4KabhZkr+J62GbGHiG/tpJYl+GBarhDJdYgkfmP5dk9x/sQ1EyqozBA1/ZuJqQ7NOyi1cyTu4aJayxcb+f1c0UCns4vJH8cjqMZEDqnrqHau4gtmeYqz93rU5UorHlRw1tRgsSXHkzblF2n/P7ip625hS4EvDVnpGGMndRrxlXZSmImWU3Sg8qUGfs3W0u1+HFqAmFswcCSFwHSp/ZgTspAHQ4otNZDDiI69WqDP7v9fmkCwXI2ZstBxKwpA3sCV6AExfUo0/2R4mVC1RMbssn8tatUrmOI=
-  file: gauth
+  file: bin/gauth
   skip_cleanup: true
   overwrite: true
   on:
