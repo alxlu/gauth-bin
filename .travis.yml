@@ -1,3 +1,4 @@
+language: go
 os: osx
 install:
   - export GOPATH="${TRAVIS_BUILD_DIR}"
